@@ -13,12 +13,12 @@ class Ball{
     //this.acc = createVector(0,1)
   }
 run(){
-  this.checkedges();
+  this.checkEdges();
   this.update();
   this.render();
   }
 
-checkedges(){
+checkEdges(){
   if(this.loc.x < 0){
     this.vel.dx = -this.vel.dx;
   }
@@ -30,17 +30,29 @@ checkedges(){
   }
   if(this.loc.y > height){
     this.vel.dy = -this.vel.dy;
+    this.loc.y = height-2;
   }
 }
   update(){
-    this.loc.add(this.vel);
+    var distTomainBall;
+    if(this.id>=0){
+      distTomainBall = this.loc.dist(mainball.loc);
+      if (distTomainBall<250){
+        this.acc = p5.Vector.sub(mainBall.loc, this.loc);
+        this.acc.normalize();
+        this.acc.mult(0.5);
+      }
+      if(distTomainBall<150){
+        this.acc = p5.Vector.sub(mainBall.loc, this.loc);
+        this.acc.normalize();
+        this.acc.mult(0.5);
+      }
+    }
+    //this.loc.add(this.vel);
     //this.vel.add(this.acc);
-    this.acc = p5.Vector(this.loc, other.loc);
-    this.acc.normalize();
-    this.acc.mult(0.5);
   }
   render(){
     fill(this.clr);
-    ellipse(this.loc.x, this.loc.y, 50, 50);
+    ellipse(this.loc.x, this.loc.y, 10, 10);
   }
 }

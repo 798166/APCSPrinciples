@@ -2,11 +2,13 @@
 // 	Date or version number
 //  This is a comment
 //  The setup function function is called once when your program begins
-var balls = []; //var b1, b2;
+var balls = [];
+var mainBall;
 function setup() {
   var cnv = createCanvas(800, 800);
   cnv.position((windowWidth-width)/2, 30);
-  background(20, 20, 20);
+  background(5, 5, 5);
+  fill(200, 30, 150);
   loadBalls(50);//  b1 = new Ball(random(width), random(height), random(-9,9), random(-9,9));
 //  b2 = new Ball(random(width), random(height), random(-9,9), random(-9,9));
 }
@@ -19,12 +21,14 @@ function draw() {
 }
 
 function loadBalls(n){
+  mainBall = new Ball(width/2, height/2, random(-1,1), random(-1,1), -1);
   for(var i = 0; i < n; i++){
-    balls[i] = new Ball (random(width), random(height), random(-7, 7),random(-7, 7));
+    balls[i] = new Ball (random(width), random(height), random(-7, 7),random(-7, 7), i);
   }
 }
 
 function runBalls(){
+  mainBall.run();
   for(var i = 0; i < balls.length; i++){
     balls[i].run();
   }

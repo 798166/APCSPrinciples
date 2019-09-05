@@ -6,7 +6,7 @@ class Ball{
   constructor(x, y, dx, dy){
     this.loc = createVector(x, y);
     this.vel = createVector(dx, dy);
-    this.acc = createVector(0, 1)
+    //this.acc = createVector(0, 1)
     this.clr = color(random(255), random(255), random(255));
   }
 run(){
@@ -31,11 +31,11 @@ checkEdges(){
   }
 }
   update(){
-    this.vel.add(this.acc)
+    //this.vel.add(this.acc)
     this.loc.add(this.vel)
   }
   render(){
     fill(this.clr);
-    ellipse(this.loc.x, this.loc.y, 10, 10);
+    ellipse(this.loc.x, this.loc.y, 200, 200);
   }
 }
