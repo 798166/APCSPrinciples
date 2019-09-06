@@ -22,28 +22,50 @@ run(){
   }
 
 checkEdges(){
+  if(this.id>=0){
   if(this.loc.x < 0){
-    this.vel.dx = -this.vel.dx;
+    this.vel.x = -this.vel.x;
   }
   if(this.loc.x > width){
-    this.vel.dx = -this.vel.dx;
+    this.vel.x = -this.vel.x;
   }
   if(this.loc.y < 0){
-    this.vel.dy = -this.vel.dy;
+    this.vel.y = -this.vel.y;
   }
   if(this.loc.y > height){
-    this.vel.dy = -this.vel.dy;
+    this.vel.y = -this.vel.y;
+  }
+}
+  if(this.id<0){
+    if(this.loc.x>800){
+      //this.loc.x=0 //mainBall warp
+      this.vel.x = -this.vel.x; //mainBall bounce off wall
+    }
+    if(this.loc.x<0){
+      //this.loc.x=800 //mainBall warp
+      this.vel.x = -this.vel.x; //mainBall bounce off wall
+    }
+    if(this.loc.y>800){
+      //this.loc.y=0 //mainBall warp
+      this.vel.y = -this.vel.y; //mainBall bounce off wall
+    }
+    if(this.loc.y<0){
+      //this.loc.y=800 //mainBall warp
+      this.vel.y = -this.vel.y; //mainBall bounce off wall
+    }
   }
 }
   update(){
     var distTomainBall;
     if(this.id>=0){
       distTomainBall = this.loc.dist(mainBall.loc);
+      //attraction
       if (distTomainBall<200){
         this.acc = p5.Vector.sub(mainBall.loc, this.loc);
         this.acc.normalize();
         this.acc.mult(0.1);
       }
+      //repulsion
       if(distTomainBall<100){
         this.acc = p5.Vector.sub(this.loc, mainBall.loc);
         this.acc.normalize();
@@ -55,7 +77,7 @@ checkEdges(){
     this.vel.add(this.acc);
   }
   render(){
-    this.clr = color(random(255), random(255), random(255));
+    //this.clr = color(random(255), random(255), random(255));
     fill(this.clr);
     ellipse(this.loc.x, this.loc.y, this.w, this.w);
   }

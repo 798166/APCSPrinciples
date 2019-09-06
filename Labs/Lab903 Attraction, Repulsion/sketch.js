@@ -9,7 +9,7 @@ function setup() {
   cnv.position((windowWidth-width)/2, 30);
   background(5, 5, 5);
   fill(200, 30, 150);
-  loadBalls(50);//  b1 = new Ball(random(width), random(height), random(-9,9), random(-9,9));
+  loadBalls(500);//  b1 = new Ball(random(width), random(height), random(-9,9), random(-9,9));
 //  b2 = new Ball(random(width), random(height), random(-9,9), random(-9,9));
 }
 
