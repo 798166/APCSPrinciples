@@ -36,28 +36,10 @@ checkEdges(){
     this.vel.y = -this.vel.y;
   }
 }
-  if(this.id<0){
-    if(this.loc.x>800){
-      //this.loc.x=0 //mainBall warp
-      this.vel.x = -this.vel.x; //mainBall bounce off wall
-    }
-    if(this.loc.x<0){
-      //this.loc.x=800 //mainBall warp
-      this.vel.x = -this.vel.x; //mainBall bounce off wall
-    }
-    if(this.loc.y>800){
-      //this.loc.y=0 //mainBall warp
-      this.vel.y = -this.vel.y; //mainBall bounce off wall
-    }
-    if(this.loc.y<0){
-      //this.loc.y=800 //mainBall warp
-      this.vel.y = -this.vel.y; //mainBall bounce off wall
-    }
-  }
-}
+
   update(){
     var distTomainBallatt;
-    var distTomainballrep
+    var distTomainBallrep;
     if(this.id>=0){
       distTomainBallatt = this.loc.dist(mainBallatt.loc);
       distTomainBallrep = this.loc.dist(mainBallrep.loc);
@@ -78,12 +60,14 @@ checkEdges(){
     this.loc.add(this.vel);
     this.vel.add(this.acc);
   }
+
   render(){
     this.angle = this.angle + .1;
     push();
     translate(this.loc.x, this.loc.y);
     rotate(this.angle);
     triangle(-5,8,5,8,0,-8)
+    pop();
     //this.clr = color(random(255), random(255), random(255));
     fill(this.clr);
   }
