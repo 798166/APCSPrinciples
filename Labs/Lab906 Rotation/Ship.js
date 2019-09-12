@@ -56,18 +56,20 @@ checkEdges(){
   }
 }
   update(){
-    var distTomainBall;
+    var distTomainBallatt;
+    var distTomainballrep
     if(this.id>=0){
-      distTomainBall = this.loc.dist(mainBall.loc);
+      distTomainBallatt = this.loc.dist(mainBallatt.loc);
+      distTomainBallrep = this.loc.dist(mainBallrep.loc);
       //attraction
-      if (distTomainBall<200){
-        this.acc = p5.Vector.sub(mainBall.loc, this.loc);
+      if (distTomainBallatt<200){
+        this.acc = p5.Vector.sub(mainBallatt.loc, this.loc);
         this.acc.normalize();
         this.acc.mult(0.1);
       }
       //repulsion
-      if(distTomainBall<100){
-        this.acc = p5.Vector.sub(this.loc, mainBall.loc);
+      if(distTomainBallrep<100){
+        this.acc = p5.Vector.sub(this.loc, mainBallrep.loc);
         this.acc.normalize();
         this.acc.mult(0.5);
       }
