@@ -2,7 +2,7 @@
 // 	Date or version number
 //  This is a comment
 //  The setup function function is called once when your program begins
-class Ball{
+class Ship{
   constructor(x, y, dx, dy, id){
     this.loc = createVector(x,y);
     this.vel = createVector(dx,dy);
