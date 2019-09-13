@@ -3,7 +3,8 @@
 //  This is a comment
 //  The setup function function is called once when your program begins
 var ships = [];
-var mainBallatt, mainBallrep;
+var mainBallatt;
+var mainBallrep;
 function setup() {
   var cnv = createCanvas(800, 800);
   cnv.position((windowWidth-width)/2, 30);
@@ -24,7 +25,7 @@ function loadObjects(n){
   mainBallatt = new Ball(width/2, height/2, random(-1,1), random(-1,1), -1);
   mainBallrep = new Ball(width/2, height/2, random(-1,1), random(-1,1), -2);
   for(var i = 0; i < n; i++){
-    ships[i] = new Ship(random(width), random(height), random(-2, 2),random(-2, 2), i+3);
+    ships[i] = new Ship(random(width), random(height), random(-2, 2),random(-2, 2), i);
   }
 }
 

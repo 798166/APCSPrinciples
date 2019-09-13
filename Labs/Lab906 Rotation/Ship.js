@@ -15,27 +15,28 @@ class Ship{
       this.w = 15
     }
   }
-run(){
-  this.checkEdges();
-  this.update();
-  this.render();
+  run(){
+    this.checkEdges();
+    this.update();
+    this.render();
   }
 
-checkEdges(){
-  if(this.id>=0){
-  if(this.loc.x < 0){
-    this.vel.x = -this.vel.x;
+  checkEdges(){
+    if(this.id>=0){
+      if(this.loc.x < 0){
+        this.vel.x = -this.vel.x;
+      }
+      if(this.loc.x > width){
+        this.vel.x = -this.vel.x;
+      }
+      if(this.loc.y < 0){
+        this.vel.y = -this.vel.y;
+      }
+      if(this.loc.y > height){
+        this.vel.y = -this.vel.y;
+      }
+    }
   }
-  if(this.loc.x > width){
-    this.vel.x = -this.vel.x;
-  }
-  if(this.loc.y < 0){
-    this.vel.y = -this.vel.y;
-  }
-  if(this.loc.y > height){
-    this.vel.y = -this.vel.y;
-  }
-}
 
   update(){
     var distTomainBallatt;
@@ -43,6 +44,9 @@ checkEdges(){
     if(this.id>=0){
       distTomainBallatt = this.loc.dist(mainBallatt.loc);
       distTomainBallrep = this.loc.dist(mainBallrep.loc);
+      this.vel.limit(5);
+      this.loc.add(this.vel);
+      this.vel.add(this.acc);
       //attraction
       if (distTomainBallatt<200){
         this.acc = p5.Vector.sub(mainBallatt.loc, this.loc);
@@ -56,17 +60,15 @@ checkEdges(){
         this.acc.mult(0.5);
       }
     }
-    this.vel.limit(5);
-    this.loc.add(this.vel);
-    this.vel.add(this.acc);
   }
 
   render(){
+    this.heading = this.vel.heading();
     this.angle = this.angle + .1;
     push();
-    translate(this.loc.x, this.loc.y);
-    rotate(this.angle);
-    triangle(-5,8,5,8,0,-8)
+      translate(this.loc.x, this.loc.y);
+      rotate(this.angle);
+      triangle(-5,8,5,8,0,-8)
     pop();
     //this.clr = color(random(255), random(255), random(255));
     fill(this.clr);
