@@ -29,21 +29,24 @@ function draw() {
 
 function startGame(){
   textSize(75);
-  text('Paddle Ball!', 400, 300);
-  fill(20, 100, 130);
+  text('Paddle Ball!', 235, 300);
+  fill(255, 0, 0);
   textSize(25);
   text('Easy', 200, 575)
   rect(200, 600, 60, 60)
+  fill(0, 255, 0);
   text('Medium', 400, 575)
   rect(400, 600, 60, 60)
+  fill(0, 0, 255);
   text('Hard', 600, 575)
   rect(600, 600, 60, 60)
 }
 
 function playGame(){
   runObjects();
+  fill(0,0,0);
   textSize(25);
-  text("Score:" + score, 50, 30);
+  text('Score:' + score, 50, 30);
 }
 
 function endGame(){
