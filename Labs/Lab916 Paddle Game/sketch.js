@@ -39,14 +39,14 @@ function startGame(){
   loadObjects(3,0)
   textSize(75);
   text('Paddle Ball!', 235, 300);
-  fill(255, 0, 0);
+  fill(0, 255, 0);
   textSize(25);
   text('Easy', 200, 575);
   rect(200, 600, 60, 60);
-  fill(0, 255, 0);
+  fill(255, 255, 0);
   text('Medium', 400, 575);
   rect(400, 600, 60, 60);
-  fill(0, 0, 255);
+  fill(255, 0, 0);
   text('Hard', 600, 575);
   rect(600, 600, 60, 60);
   if(mouseIsPressed &&
