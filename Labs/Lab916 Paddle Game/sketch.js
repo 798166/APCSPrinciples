@@ -43,8 +43,9 @@ function startGame(){
   textSize(25);
   text('Easy', 200, 575);
   rect(200, 600, 60, 60);
-  fill(255, 255, 0);
+  fill(0, 0, 0);
   text('Medium', 400, 575);
+  fill(255, 255, 0);
   rect(400, 600, 60, 60);
   fill(255, 0, 0);
   text('Hard', 600, 575);
