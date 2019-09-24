@@ -41,5 +41,6 @@ isColliding(){
   }else if(this.loc.y>height){
     score--;
   }
-    }
+  if(this.loc.x)
+}
 };

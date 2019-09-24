@@ -79,6 +79,9 @@ function playGame(){
   fill(0,0,0);
   textSize(25);
   text('Score:' + score, 50, 30);
+  fill(0,0,0);
+  textSize(25);
+  text('Health:', 700, 30);
 }//end of playGame
 
 function endGame(){
