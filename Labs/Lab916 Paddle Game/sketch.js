@@ -5,6 +5,7 @@
 var balls = []
 var paddle;
 var score = 0;
+var health = 10
 var gameState = 1;
 var gameMode;
 var b;
@@ -81,7 +82,7 @@ function playGame(){
   text('Score:' + score, 50, 30);
   fill(0,0,0);
   textSize(25);
-  text('Health:', 700, 30);
+  text('Health:' + health, 650, 30);
 }//end of playGame
 
 function endGame(){

@@ -1,5 +1,5 @@
-//  Your Name
-// 	Date or version number
+//  Will Kreidler
+// 	926
 //  This is a comment
 //  The setup function function is called once when your program begins
 class Ball{
@@ -41,6 +41,7 @@ isColliding(){
   }else if(this.loc.y>height){
     score--;
   }
-  if(this.loc.x)
-}
-};
+  if(this.loc.y>height)
+    health--;
+  }
+}//end of ball class
