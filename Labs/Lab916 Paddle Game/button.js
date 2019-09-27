@@ -11,11 +11,11 @@ class Button{
      this.message =msg;
      this.clr = clr
    }
-
-   render(){
-
+   run(){
+     this.render();
    }
 
+    render(){
 
-
+   }
 }
