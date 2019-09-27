@@ -9,7 +9,7 @@ class Paddle{
     this.w = 300;
     this.h = 25;
     }
-  run(){
+    run(){
     this.update();
     this.render();
   }
