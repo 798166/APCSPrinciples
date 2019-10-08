@@ -1,4 +1,4 @@
-/*
+/*Will Kreidler
 **Lab 1007 Ball
 **Checker Board
 **
