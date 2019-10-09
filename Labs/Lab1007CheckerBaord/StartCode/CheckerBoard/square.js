@@ -7,15 +7,21 @@
 */
 class Square{
 //  Add perameters to your constructor function
-constructor(x,y,clr){
+constructor(x,y,w,h,clr){
   this.x = x;
   this.y = y;
+  this.w = w;
+  this.h = h;
   this.clr = clr;
+}
+run(){
+  this.render();
+  this.update();
 }
 
 render(){
   fill(this.clr);
-  rect(this.x, this.y, 100, 100);
+  rect(this.x, this.y, this.w, this.h);
 }
 
 //function Sqr(){

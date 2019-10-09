@@ -29,6 +29,7 @@ update(){
   //this.clr = color(random(255), random(255), random(255));
   this.loc.add(this.vel);
   this.vel.add(this.acc);
+  this.vel.limit(20);
 } //end of update
 
 isColliding(){

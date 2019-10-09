@@ -9,7 +9,6 @@ var health = 10
 var gameState = 1;
 var gameMode;
 var b;
-var btnEasy, btnMed, btnHard;
 function setup() {
   var cnv = createCanvas(800, 800);
   cnv.position((windowWidth-width)/2, 30);
@@ -19,6 +18,8 @@ function setup() {
 
 function draw() {
   if(gameState === 1){
+    textSize(75);
+    text('Paddle Ball!', 235, 300);
     startGame();
   }
   if(gameState === 2){
@@ -29,50 +30,26 @@ function draw() {
   }
   background(255,255,255, 60);
   fill(2, 2, 2)
+  if(lives === 0) gameState = 3;
 } //end of draw
 
 function makeButtons(){
-  btnEasy = new Button(200, 600, 100, 50, "Easy", color(0, 250, 0));
-  btnMed = new Button(400, 600, 100, 50, "Medium", color(250, 250, 0));
-  btnHard = new Button(600,600, 100, 50, "Hard", color(250, 0, 0));
+  btnEasy = new Button(200, 600, 60, 60, "Easy", color(0, 250, 0));
+  btnMed = new Button(400, 600, 60, 60, "Medium", color(250, 250, 0));
+  btnHard = new Button(600,600, 60, 60, "Hard", color(250, 0, 0));
 }
 
 function startGame(){
-  if(gameMode === 1){
-    b = 2;
-  }else if(gameMode === 2){
-    b = 3
-  }else if(gameMode === 3){
-    b = 5 //hard mode: balls go faster, start with negative points
-  };
   btnEasy.run();
   btnMed.run();
   btnHard.run();
-  loadObjects(3,0)
-  textSize(75);
-  text('Paddle Ball!', 235, 300);
-  if(mouseIsPressed &&
-  mouseX > 200 &&
-  mouseX < 260 &&
-  mouseY > 600 &&
-  mouseY < 660){
-    gameMode = 1;
-    gameState = 2;
-  }else if(mouseIsPressed &&
-  mouseX > 400 &&
-  mouseX < 460 &&
-  mouseY > 600 &&
-  mouseY < 660){
-    gameMode = 2;
-    gameState = 2;
-  }else if(mouseIsPressed &&
-  mouseX > 600 &&
-  mouseX < 660 &&
-  mouseY > 600 &&
-  mouseY < 660){
-    gameMode = 3;
-    gameState = 2;
-  }
+  if(gameMode === 1){
+    loadObjects(2);
+  }else if(gameMode === 2){
+    loadObjects(3);
+  }else if(gameMode === 3){
+    loadObjects(5); //hard mode: balls go faster, start with negative points
+  };
 } //end of startGame
 
 function playGame(){

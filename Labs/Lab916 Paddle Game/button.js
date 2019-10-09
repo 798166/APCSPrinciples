@@ -8,14 +8,45 @@ class Button{
      this.loc = createVector(x, y);
      this.h = h;
      this.w = w;
-     this.message =msg;
-     this.clr = clr
-   }
+     this.msg =msg;
+     this.clr = color(random(255), random(255), random(255))
+   }//end of constructor
    run(){
      this.render();
-   }
+     this.checkEdges();
+   }//end of run
 
     render(){
+      fill(this.clr);
+      rect(this.loc.x,this.loc.y,this.w,this.h);
+      textSize(25);
+      fill(2, 2, 2)
+      text(this.msg, this.loc.x, this.loc.y - 20);
+   }//end of render
 
+   checkEdges(){
+     if(mouseIsPressed &&
+     mouseX > 200 &&
+     mouseX < 260 &&
+     mouseY > 600 &&
+     mouseY < 660 &&
+      this.msg === 'Easy'){
+       gameMode = 1;
+       gameState = 2;
+     }else if(mouseIsPressed &&
+     mouseX > 400 &&
+     mouseX < 460 &&
+     mouseY > 600 &&
+     mouseY < 660){
+       gameMode = 2;
+       gameState = 2;
+     }else if(mouseIsPressed &&
+     mouseX > 600 &&
+     mouseX < 660 &&
+     mouseY > 600 &&
+     mouseY < 660){
+       gameMode = 3;
+       gameState = 2;
+     }
    }
 }
