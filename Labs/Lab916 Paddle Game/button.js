@@ -8,7 +8,7 @@ class Button{
      this.loc = createVector(x, y);
      this.h = h;
      this.w = w;
-     this.msg =msg;
+     this.msg = msg;
      this.clr = color(random(255), random(255), random(255))
    }//end of constructor
    run(){
@@ -37,14 +37,16 @@ class Button{
      mouseX > 400 &&
      mouseX < 460 &&
      mouseY > 600 &&
-     mouseY < 660){
+     mouseY < 660 &&
+      this.msg === 'Medium'){
        gameMode = 2;
        gameState = 2;
      }else if(mouseIsPressed &&
      mouseX > 600 &&
      mouseX < 660 &&
      mouseY > 600 &&
-     mouseY < 660){
+     mouseY < 660 &&
+      this.msg === 'Hard'){
        gameMode = 3;
        gameState = 2;
      }
