@@ -4,12 +4,12 @@
 //  The setup function function is called once when your program begins
 
 class Button{
-   constructor(x, y, h, w, msg,  clr){
+   constructor(x, y, h, w, msg){
      this.loc = createVector(x, y);
      this.h = h;
      this.w = w;
      this.msg = msg;
-     this.clr = color(random(255), random(255), random(255))
+     this.clr = color(random(255), random(255), random(255));
    }//end of constructor
    run(){
      this.render();
@@ -30,7 +30,7 @@ class Button{
      mouseX < 260 &&
      mouseY > 600 &&
      mouseY < 660 &&
-      this.msg === 'Easy'){
+     this.msg === 'Easy'){
        gameMode = 1;
        gameState = 2;
      }else if(mouseIsPressed &&
@@ -38,7 +38,7 @@ class Button{
      mouseX < 460 &&
      mouseY > 600 &&
      mouseY < 660 &&
-      this.msg === 'Medium'){
+    this.msg === 'Medium'){
        gameMode = 2;
        gameState = 2;
      }else if(mouseIsPressed &&
@@ -46,7 +46,7 @@ class Button{
      mouseX < 660 &&
      mouseY > 600 &&
      mouseY < 660 &&
-      this.msg === 'Hard'){
+    this.msg === 'Hard'){
        gameMode = 3;
        gameState = 2;
      }

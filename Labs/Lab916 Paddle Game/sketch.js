@@ -9,11 +9,12 @@ var health = 10
 var gameState = 1;
 var gameMode;
 var b;
+var btnMed, btnEasy, btnHard;
 function setup() {
   var cnv = createCanvas(800, 800);
   cnv.position((windowWidth-width)/2, 30);
   background(20, 20, 20);
-  makeButtons;
+  makeButtons();
 } //end of setup
 
 function draw() {
@@ -34,9 +35,9 @@ function draw() {
 } //end of draw
 
 function makeButtons(){
-  btnEasy = new Button(200, 600, 60, 60, "Easy", color(0, 250, 0));
-  btnMed = new Button(400, 600, 60, 60, "Medium", color(250, 250, 0));
-  btnHard = new Button(600,600, 60, 60, "Hard", color(250, 0, 0));
+  btnEasy = new Button(200, 600, 60, 60, "Easy");
+  btnMed = new Button(400, 600, 60, 60, "Medium");
+  btnHard = new Button(600,600, 60, 60, "Hard");
 }
 
 function startGame(){
