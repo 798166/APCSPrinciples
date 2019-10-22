@@ -3,7 +3,7 @@
 //  This is a comment
 //  The setup function function is called once when your program begins
 
-  var list = [4, 2, 1, 5, 7, 9];
+  //var list = [4, 2, 1, 5, 7, 9];
   var l = [];
   function loadList(n){
     for(var i = 0; i < n; i++){//keeps adding numbers onto the array until i < n, the number of items in the array
