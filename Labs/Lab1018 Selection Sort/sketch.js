@@ -6,7 +6,7 @@ var list=[]
 var temp;
 
 function loadList(n){
-  for(var i = 0, i<n, i++)//keeps adding numbers onto the array until i < n, the number of items in the array
+  for(var i = 0; i < n; i++)//keeps adding numbers onto the array until i < n, the number of items in the array
     list.push(int(random(0, 1000)));//pushes a random integer between 0 and 1000 into the array
 }
 
@@ -35,4 +35,10 @@ function setup() {
 function draw() {
 ellipse(200, 320, 300, 269);
 fill(200, 148, 0);
+}
+
+function swap(list, a, b) {
+  var temp = list[a];
+  list[a] = list[b];
+  list[b] = temp;
 }
