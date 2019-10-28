@@ -1,15 +1,11 @@
 //Will Kreidler
 //1007
 /*
-**  Square Constructor Function::
-**  eettlin
-**  Sept. 11, 2018
 */
 class Square{
 //  Add perameters to your constructor function
 constructor(x,y,w,h,clr){
-  this.x = x;
-  this.y = y;
+  this.loc = createVector(x,y)
   this.w = w;
   this.h = h;
   this.clr = clr;
