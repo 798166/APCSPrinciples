@@ -6,18 +6,20 @@ class Square{
 //  Add perameters to your constructor function
 constructor(x,y,w,h,clr){
   this.loc = createVector(x,y)
-  this.w = w;
-  this.h = h;
-  this.clr = clr;
+  this.w = barWidth;
+  this.h = height - this.loc.y;
 }
 run(){
   this.render();
-  this.update();
 }
 
 render(){
-  fill(this.clr);
-  rect(this.x, this.y, this.w, this.h);
+  fill(134, 0, 216);
+    rect(this.loc.x, this.loc.y, this.w, this.h);
+  }
+  set(i){
+    this.loc.x = i * 25;
+  }
 }
 
 //function Sqr(){
@@ -29,4 +31,4 @@ render(){
 //  }
 
 //}
-}//  End of Square constructor function
+//  End of Square constructor function
