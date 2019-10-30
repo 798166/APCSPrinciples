@@ -2,12 +2,12 @@
 //1007
 /*
 */
-class Square{
+class Bar{
 //  Add perameters to your constructor function
 constructor(x,y,w,h,clr){
   this.loc = createVector(x,y)
-  this.w = barWidth;
-  this.h = height - this.loc.y;
+  this.w = w;
+  this.h = h;
 }
 run(){
   this.render();

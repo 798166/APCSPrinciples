@@ -10,9 +10,10 @@ var bars = [];
 var numBars, barWidth;
 
 function setup() {
+
   var cnv = createCanvas(800, 800);
   cnv.position((windowWidth-width)/2, 30);
-  background(235);
+  background(37, 165, 200);
   barWidth = 25;
   numBars = width/barWidth;
   loadBars(numBars);
@@ -28,9 +29,8 @@ function draw(){
 
 function loadBars(num){
   for(var i = 0; i < num; i++){
-    var barHeight = Math.floor(random(height));
-    var loc = createVector(i*barWidth, barHeight);
-    bars[i] = new Bar(loc);
+    var barHeight = random(height);
+    bars[i] = new Bar((i*25),0,25,barHeight,color(20,20,20));
   }
 }
 
@@ -38,7 +38,7 @@ function runBars(){
   for(var i=0; i<bars.length; i++){
     bars[i].set(i);
   }
-  background(235);
+  background(37, 165, 200);
   for(var i=0; i<bars.length; i++){
     bars[i].run();
   }
