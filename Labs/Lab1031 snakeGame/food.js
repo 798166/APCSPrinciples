@@ -23,4 +23,6 @@ class Food{
   update(){
 
   }
-}//end of snake class
+
+}
+//end of snake class

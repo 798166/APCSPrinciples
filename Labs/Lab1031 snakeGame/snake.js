@@ -3,20 +3,19 @@
 //  This is a comment
 //  The setup function function is called once when your program begins
 class Snake{
-  constructor(x,y,dx,dy,w,id){
+  constructor(x,y,dx,dy,w,c){
     this.loc=createVector(x,y);
     this.vel=createVector(dx,dy);
-    this.vel.x=0;
-    this.vel.y=0;
-    this.w=25;
-    this.clr=color(255, 251, 28);
-    this.id=id;
+    this.w=w;
+    this.clr=c;
+    this.body=[];
   }
 
   run(){
     this.render();
     this.checkEdges();
     this.update();
+    this.tangled();
     this.hitFood();
   }
 
@@ -45,46 +44,63 @@ checkEdges(){
   }
 }
 
-  update(){
-    if(keyIsPressed&&
-      keyCode=== RIGHT_ARROW){
-        this.vel.x=3;
-        this.vel.y=0;
+update(){
+  if(keyIsPressed){
+    if (keyCode===RIGHT_ARROW){
+      for(var i=0; i<segments.length;i++){
+        if(segments[i].loc.y===yTurnLocation){
+          segments[i].vel.x=3;
+          segments[i].vel.y=0;
+        }
       }
-    if(keyIsPressed&&
-      keyCode=== LEFT_ARROW){
-        this.vel.x=-3;
-        this.vel.y=0;
-        }
-    if(keyIsPressed&&
-      keyCode=== UP_ARROW){
-        this.vel.x=0;
-        this.vel.y=-3;
-      }
-    if(keyIsPressed&&
-      keyCode=== DOWN_ARROW){
-        this.vel.x=0;
-        this.vel.y=3;
-        }
-    this.loc.add(this.vel);
-  }
-
-    hitFood(){
-  for (var i=0; i<food.length;i++){
-    if(this.loc.x>food[i].loc.x&&
-        this.loc.x<food[i].loc.x+food[i].w&&
-        this.loc.y>food[i].loc.y&&
-        this.loc.y<food[i].loc.y+food[i].w){
-          food.splice(i,1);
-          hitFood='yes';
-        }
-      else if(this.loc.x+this.w>food[i].loc.x&&
-        this.loc.x+this.w<food[i].loc.x+food[i].w&&
-        this.loc.y+this.w>food[i].loc.y&&
-        this.loc.y+this.w<food[i].loc.y+food[i].w){
-          food.splice(i,1);
-          hitFood='yes';
-        }
-  }
     }
-}//end of snake class
+    if (keyCode===LEFT_ARROW){
+      for(var i=0; i<segments.length;i++){
+        if(segments[i].loc.y===yTurnLocation){
+          segments[i].vel.x=-3;
+          segments[i].vel.y=0;
+        }
+      }
+    }
+    if (keyCode===UP_ARROW){
+      for(var i=0; i<segments.length;i++){
+        if(segments[i].loc.x===xTurnLocation){
+          segments[i].vel.x=0;
+          segments[i].vel.y=-3;
+        }
+      }
+    }
+    if (keyCode===DOWN_ARROW){
+      for(var i=0; i<segments.length;i++){
+        if(segments[i].loc.x===xTurnLocation){
+          segments[i].vel.x=0;
+          segments[i].vel.y=3;
+        }
+      }
+    }
+  }
+  this.loc.add(this.vel);
+}
+
+tangled(){
+
+}
+    hitFood(){
+      for (var i=0; i<food.length;i++){
+        if(this.loc.x>food[i].loc.x&&
+            this.loc.x<food[i].loc.x+food[i].w&&
+            this.loc.y>food[i].loc.y&&
+            this.loc.y<food[i].loc.y+food[i].w){
+              food.splice(i,1);
+              hitFood='yes';
+            }
+          else if(this.loc.x+this.w>food[i].loc.x&&
+            this.loc.x+this.w<food[i].loc.x+food[i].w&&
+            this.loc.y+this.w>food[i].loc.y&&
+            this.loc.y+this.w<food[i].loc.y+food[i].w){
+              food.splice(i,1);
+              hitFood='yes';
+            }
+      }
+        }
+    }//end of snake class
