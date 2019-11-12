@@ -1,7 +1,7 @@
 //  Will Kreidler
 // 	1031
 
-segments=[];
+var snake;
 hitFood='no';
 numberFood=0;
 food=[];
@@ -34,7 +34,7 @@ if(hitFood==='yes'){
 }
 
 function loadHead(){
-  segments[0]=new Snake(0,0,0,0,25,color(255,0,0),0);
+  snake=new Snake(0,0,0,0,25,color(255,0,0),0);
 }
 
 function loadFood(){
@@ -49,9 +49,7 @@ function runFood(){
 
 function runSnake(){
   background(20,20,20);
-  for (var i=0; i<segments.length; i++){
-    segments[i].run();
-  }
+  snake.run
   if(keyIsPressed){
     xTurnLocation=segments[0].loc.x;
     yTurnLocation=segments[0].loc.y;
