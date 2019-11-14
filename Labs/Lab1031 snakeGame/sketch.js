@@ -51,8 +51,8 @@ function runSnake(){
   background(20,20,20);
   snake.run
   if(keyIsPressed){
-    xTurnLocation=segments[0].loc.x;
-    yTurnLocation=segments[0].loc.y;
+    xTurnLocation=snake.loc.x;
+    yTurnLocation=snake.loc.y;
   }
 }
 

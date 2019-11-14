@@ -45,40 +45,26 @@ checkEdges(){
 }
 
 update(){
-  if(keyIsPressed){
-    if (keyCode===RIGHT_ARROW){
-      for(var i=0; i<segments.length;i++){
-        if(segments[i].loc.y===yTurnLocation){
-          segments[i].vel.x=3;
-          segments[i].vel.y=0;
-        }
-      }
+  if(keyIsPressed&&
+    keyCode===RIGHT_ARROW){
+      snake.vel.x=3;
+      snake.vel.y=0;
     }
-    if (keyCode===LEFT_ARROW){
-      for(var i=0; i<segments.length;i++){
-        if(segments[i].loc.y===yTurnLocation){
-          segments[i].vel.x=-3;
-          segments[i].vel.y=0;
-        }
-      }
+    if(keyIsPressed&&
+      keyCode===LEFT_ARROW){
+        snake.vel.x=-3;
+        snake.vel.y=0;
     }
-    if (keyCode===UP_ARROW){
-      for(var i=0; i<segments.length;i++){
-        if(segments[i].loc.x===xTurnLocation){
-          segments[i].vel.x=0;
-          segments[i].vel.y=-3;
-        }
-      }
+    if(keyIsPressed&&
+      keyCode===UP_ARROW){
+        snake.vel.x=0;
+        snake.vel.y=-3;
     }
-    if (keyCode===DOWN_ARROW){
-      for(var i=0; i<segments.length;i++){
-        if(segments[i].loc.x===xTurnLocation){
-          segments[i].vel.x=0;
-          segments[i].vel.y=3;
-        }
+    if(keyIsPressed&&
+      keyCode===DOWN_ARROW){
+        snake.vel.x=0;
+        snake.vel.y=3;
       }
-    }
-  }
   this.loc.add(this.vel);
 }
 
