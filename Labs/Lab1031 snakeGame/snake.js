@@ -20,9 +20,11 @@ class Snake{
   }
 
   render(){
-    background(20,20,20);
     fill(this.clr);
-    rect(this.loc.x,this.loc.y,this.w,this.w);
+    rect(this.loc.x*this.w,this.loc.y*this.w,this.w,this.w);
+    for (var i=0; i<this.body.length; i++){
+      rect(this.body[i].x*this.w,this.body[i].y*this.w, this.w, this.w);
+    }
   }
 
 checkEdges(){
@@ -30,7 +32,7 @@ checkEdges(){
   if(this.loc.x<0){
     endGame='yes';
   }
-  if(this.loc.x>width){
+  if(this.loc.x>width/this.w){
     //if hits right side
     endGame='yes';
   }
@@ -38,55 +40,59 @@ checkEdges(){
     //if hits top
     endGame='yes';
   }
-  if(this.loc.y>height){
+  if(this.loc.y>height/this.w){
     //if hits bottom
     endGame='yes';
   }
 }
 
-update(){
-  if(keyIsPressed&&
-    keyCode===RIGHT_ARROW){
-      snake.vel.x=3;
-      snake.vel.y=0;
-    }
+  update(){
     if(keyIsPressed&&
-      keyCode===LEFT_ARROW){
-        snake.vel.x=-3;
-        snake.vel.y=0;
-    }
-    if(keyIsPressed&&
-      keyCode===UP_ARROW){
-        snake.vel.x=0;
-        snake.vel.y=-3;
-    }
-    if(keyIsPressed&&
-      keyCode===DOWN_ARROW){
-        snake.vel.x=0;
-        snake.vel.y=3;
+      keyCode===RIGHT_ARROW){
+        head.vel.x=1;
+        head.vel.y=0;
       }
-  this.loc.add(this.vel);
-}
+      if(keyIsPressed&&
+        keyCode===LEFT_ARROW){
+          head.vel.x=-1;
+          head.vel.y=0;
+        }
+        if(keyIsPressed&&
+          keyCode===UP_ARROW){
+            head.vel.x=0;
+            head.vel.y=-1;
+          }
+          if(keyIsPressed&&
+            keyCode===DOWN_ARROW){
+              head.vel.x=0;
+              head.vel.y=1;
+            }
+    if(this.body.length>0){
+      for (var i=this.body.length-1; i>0; i--){
+        this.body[i].x=this.body[i-1].x;
+        this.body[i].y=this.body[i-1].y;
+      }
+      this.body[0].x=head.loc.x;
+      this.body[0].y=head.loc.y;
+    }
+    head.loc.add(this.vel);
+
+  }
 
 tangled(){
-
+for (var i=0; i<this.body.length; i++){
+  if (head.loc.x===this.body[i].x&&head.loc.y===this.body[i].y){
+    endGame='yes';
+  }
 }
-    hitFood(){
-      for (var i=0; i<food.length;i++){
-        if(this.loc.x>food[i].loc.x&&
-            this.loc.x<food[i].loc.x+food[i].w&&
-            this.loc.y>food[i].loc.y&&
-            this.loc.y<food[i].loc.y+food[i].w){
-              food.splice(i,1);
-              hitFood='yes';
-            }
-          else if(this.loc.x+this.w>food[i].loc.x&&
-            this.loc.x+this.w<food[i].loc.x+food[i].w&&
-            this.loc.y+this.w>food[i].loc.y&&
-            this.loc.y+this.w<food[i].loc.y+food[i].w){
-              food.splice(i,1);
-              hitFood='yes';
-            }
-      }
-        }
-    }//end of snake class
+}
+
+hitFood(){
+    if(head.loc.x===food[0].loc.x&&
+        head.loc.y===food[0].loc.y){
+          food[0]= new Food(int(random(80)),int(random(80)),10,0);
+          this.body.push(createVector(head.loc.x,head.loc.y));
+          hitFood='yes';
+  }
+    }
+}//end of snake class
