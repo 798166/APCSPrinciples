@@ -10,7 +10,7 @@ function setup() {
   // put setup code here
   var cnv = createCanvas(800, 800);
   cnv.position((windowWidth-width)/2, 30);
-  background(20, 20, 20);
+  background(235, 64, 52);
   endGame='no';
   hitFood='no';
   loadHead();
@@ -32,7 +32,7 @@ function draw() {
 
 function startScreen(){
   textSize(75);
-  fill(255,0,0);
+  fill(37, 48, 89);
   text('Snake Game',200,200);
   textSize(25);
   fill(0,255,0)
@@ -70,11 +70,11 @@ function finalScreen(){
 }
 
 function loadHead(){
-  head= new Snake(0,0,0,0,10,color(96, 179, 114));
+  head= new Snake(0,0,0,0,20,color(52, 89, 235));
 }
 
 function loadFood(){
-  food[0]= new Food(int(random(80)),int(random(80)),10,0);
+  food[0]= new Food(int(random(40)),int(random(40)),20,0);
 }
 
 function runFood(){
@@ -82,6 +82,6 @@ function runFood(){
 }
 
 function runSnake(){
-  background(20,20,20);
+  background(235, 64, 52);
   head.run();
 }
