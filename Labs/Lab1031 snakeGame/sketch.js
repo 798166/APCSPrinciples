@@ -67,6 +67,10 @@ function finalScreen(){
   textSize(25);
   fill(255,0,0);
   text('You lost! You got a score of '+ numberFood, 0,200);
+  //if(keyIsPressed&&
+  //  keyCode===SHIFT){
+      //gameState=1;
+  //  }
 }
 
 function loadHead(){
