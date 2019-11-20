@@ -31,6 +31,7 @@ function draw() {
 }
 
 function startScreen(){
+  background(235, 64, 52);
   textSize(75);
   fill(37, 48, 89);
   text('Snake Game',200,200);
@@ -66,11 +67,12 @@ function finalScreen(){
   background(20,20,20);
   textSize(25);
   fill(255,0,0);
-  text('You lost! You got a score of '+ numberFood, 0,200);
-  //if(keyIsPressed&&
-  //  keyCode===SHIFT){
-      //gameState=1;
-  //  }
+  text('You lost! You got a score of '+ numberFood, 225,400);
+  if(keyIsPressed&&
+    keyCode===SHIFT){
+      clear();
+      gameState=1;
+  }
 }
 
 function loadHead(){
