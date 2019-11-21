@@ -67,12 +67,15 @@ function finalScreen(){
   background(20,20,20);
   textSize(25);
   fill(255,0,0);
-  text('You lost! You got a score of '+ numberFood, 225,400);
-  if(keyIsPressed&&
-    keyCode===SHIFT){
-      clear();
-      gameState=1;
-  }
+  text('You lose! You got bad score of '+ numberFood, 225,400);
+  //textSize(25);
+  //fill(255,0,0);
+  text('Want to play again? Press reload on the tab!', 225,525);
+  //if(keyIsPressed&&
+    //keyCode===SHIFT){
+      //clear();
+      //gameState=1;
+  //}
 }
 
 function loadHead(){
