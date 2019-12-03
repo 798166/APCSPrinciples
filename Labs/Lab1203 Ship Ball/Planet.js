@@ -59,20 +59,20 @@ checkEdges(){
     var distTomainPlanet;
     //var distTomainballrep
     if(this.id>=0){
-      distTomainPlanet = this.loc.dist(mainPlanet.loc);
+      distTomainPlanet = this.loc.dist(Planet.loc);
       //distTomainBallrep = this.loc.dist(mainBallrep.loc);
       //attraction
       if (distTomainPlanet<100){
-        this.acc = p5.Vector.sub(mainPlanet.loc, this.loc);
+        this.acc = p5.Vector.sub(Planet.loc, this.loc);
         this.acc.normalize();
         this.acc.mult(0.1);
       }
       //repulsion
-      if(distTomainPlanet<100){
-        this.acc = p5.Vector.sub(this.loc, mainPlanet.loc);
-        this.acc.normalize();
-        this.acc.mult(0.5);
-      }
+      //if(distTomainPlanet<100){
+        //this.acc = p5.Vector.sub(this.loc, mainPlanet.loc);
+        //this.acc.normalize();
+        //this.acc.mult(0.5);
+      //}
     }
     this.vel.limit(5);
     this.loc.add(this.vel);

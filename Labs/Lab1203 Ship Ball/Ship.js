@@ -58,11 +58,11 @@ class Ship{
         this.acc.mult(0.1);
       }
       //repulsion
-      if(distTomainPlanet<100){
-        this.acc = p5.Vector.sub(this.loc, mainPlanet.loc);
-        this.acc.normalize();
-        this.acc.mult(0.5);
-      }
+      //if(distTomainPlanet<100){
+        //this.acc = p5.Vector.sub(this.loc, mainPlanet.loc);
+        //this.acc.normalize();
+        //this.acc.mult(0.5);
+    //  }
     }
   }
 
